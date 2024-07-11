@@ -65,7 +65,9 @@ class MCblock(BasicModule):
         self.fc = nn.Linear(self.ref_size*self.ref_size,self.blk_size*self.blk_size)
 
     def forward(self,input,ref,y):
-        b_s = input.size(0)
+        b_s = input.size(0)#19*19 = 361\
+        #print(b_s)
+        #print("input.shape:",input.shape)
         x_1 = self.rec(input)
         x_mc = self.fc(ref.view(b_s,self.ref_size*self.ref_size)).view(b_s,self.blk_size,self.blk_size)
         x_2 = x_mc.view(b_s,self.blk_size*self.blk_size).unsqueeze_(2)
@@ -91,6 +93,8 @@ class MCNet(BasicModule):
 
     def forward(self,input,ref,y):
         b_s = input.size(0)
+        #print(b_s)
+        #print("input.shape:",input.shape)
         x_1,x_mc_1 = self.block1(input,ref,y)
         weight = self.m.repeat(b_s,1,1)
         input_2 = t.bmm(weight,x_1.view(b_s,self.blk_size*self.blk_size,1)).squeeze_(2)

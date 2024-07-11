@@ -22,7 +22,7 @@ def train(**kwargs):
     opt.write_config(kwargs,opt.save_train_root)
     log_file = open(save_train_root+"/log_file.txt",mode="w")
 
-    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+    os.environ['CUDA_VISIBLE_DEVICES'] = str(opt.cuda_visible_devices)
     bernoulli_weights = np.loadtxt(opt.weights)
     bernoulli_weights = t.from_numpy(bernoulli_weights).float().to(opt.device)
     print("load weights successfully!")
@@ -56,6 +56,7 @@ def train(**kwargs):
 
     for epoch in range(opt.max_epoch):
         loss_meter.reset()
+        print("epoch now:",epoch)
         for ii,data in tqdm(enumerate(train_dataloader)):
             img_data_b = data[0].to(opt.device).float()
             img_data_b.squeeze_(1)

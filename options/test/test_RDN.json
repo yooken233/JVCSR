@@ -1,0 +1,47 @@
+{
+    "mode": "sr",
+    "use_cl": true,
+    "gpu_ids": [0],
+
+    "scale": 2,
+    "degradation": "BI",
+    "is_train": false,
+    "use_chop": true,
+    "rgb_range": 255,
+    "self_ensemble": false,
+
+    "datasets": {
+        "test_set1": {
+            "mode": "LRHR",
+           
+			"dataroot_HR": "/data2/jian/CoarseNet_CS/scale_2/crop/BSD500/croped_or",
+            "dataroot_LR": "/data2/jian/CoarseNet_CS/scale_2/rec/4x4/BSD500_x2/samp/rec05",
+			
+			//"dataroot_HR": "/data2/jian/images/or/Flickr2K_800",
+            //"dataroot_LR": "/data2/jian/CoarseNet_CS/scale_2/rec/Flickr2K_800_x2/samp/rec075",
+			//"dataroot_HR": "/data2/jian/CoarseNet_CS/scale_2/DIV2Ktrain/DIV2K_train_HR_aug/x2",
+            //"dataroot_LR": "/data2/jian/CoarseNet_CS/scale_2/rec/DIV2K_x2/samp/rec075",
+            "data_type": "img"
+        }
+//        "test_set2": {
+//             "mode": "LRHR",
+//             "dataroot_HR": "./results/HR/Set14/x4",
+//             "dataroot_LR": "./results/LR/LRBI/Set14/x4",
+//             "data_type": "img"
+//         },
+        
+    },
+
+    "networks": {
+        "which_model": "RDN",
+        "num_features": 64,
+        "in_channels": 3,
+        "out_channels": 3,
+        "num_blocks": 16,
+        "num_layers": 8
+    },
+
+    "solver": {
+        "pretrained_path": "/data2/jian/CoarseNet_CS/experiments/RDN_05/epochs/best_ckp.pth"
+    }
+}

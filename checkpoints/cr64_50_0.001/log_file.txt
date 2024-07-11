@@ -1,0 +1,10 @@
+0 epoch train loss value is:0.030392746102721475lr is: 0.001
+5 epoch train loss value is:0.023711911431171212lr is: 0.001
+10 epoch train loss value is:0.021850817735534152lr is: 0.001
+15 epoch train loss value is:0.020983944992230674lr is: 0.001
+20 epoch train loss value is:0.020656141083743834lr is: 0.001
+25 epoch train loss value is:0.020492738970288613lr is: 0.001
+30 epoch train loss value is:0.02038428168449815lr is: 0.001
+35 epoch train loss value is:0.020302614386506372lr is: 0.001
+40 epoch train loss value is:0.020240290868084952lr is: 0.001
+45 epoch train loss value is:0.020179975483166353lr is: 0.001

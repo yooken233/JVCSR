@@ -1,0 +1,47 @@
+{
+    "mode": "sr",
+    "use_cl": true,
+    "gpu_ids": [0],
+
+    "scale": 1,
+    "degradation": "BI",
+    "is_train": false,
+    "use_chop": true,
+    "rgb_range": 255,
+    "self_ensemble": false,
+    "dir": "/home/jian/SR/SRFBN_CVPR19/results/test/",
+
+    "datasets": {
+        "test_set1": {
+            "mode": "LR",
+            "dataroot_LR": "/data2/jian/CS-MCNet/txt/val/down/smallercr4/",
+			
+			//"dataroot_HR": "/data2/jian/images/or/Flickr2K_800",
+            //"dataroot_LR": "/data2/jian/CoarseNet_CS/scale_2/rec/Flickr2K_800_x2/samp/rec075",
+			//"dataroot_HR": "/data2/jian/CoarseNet_CS/scale_2/DIV2Ktrain/DIV2K_train_HR_aug/x2",
+            //"dataroot_LR": "/data2/jian/CoarseNet_CS/scale_2/rec/DIV2K_x2/samp/rec075",
+            "data_type": "npy"
+        }
+//        "test_set2": {
+//             "mode": "LRHR",
+//             "dataroot_HR": "./results/HR/Set14/x4",
+//             "dataroot_LR": "./results/LR/LRBI/Set14/x4",
+//             "data_type": "img"
+//         },
+        
+    },
+
+    "networks": {
+        "which_model": "SRFBN",
+        "num_features": 64,
+        "in_channels": 1,
+        "out_channels": 1,
+        "num_steps": 4,
+		//"sr":0.75,
+        "num_groups": 6
+    },
+
+    "solver": {
+        "pretrained_path": "/data2/jian/SRCS/experiments/Denoising_cr4/epochs/best_ckp.pth"
+    }
+}
